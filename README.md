@@ -21,3 +21,10 @@ Crea un programa que permita convertir temperaturas
 Crea un repositorio y guarda la solución en él.
 
 Envía el enlace en la sección "Texto en línea".
+
+
+Integrante: Dorian Wilfred Lanuza Smith       Carnet: 2017-0524U
+
+Nota: "A Dios le doy las gracias por darme la oportunidad de estudiar, y le agradezco por la sabiduría que me da para realizar los ejercicios, quiero seguir mejorando cada día más. Amén."
+
+
