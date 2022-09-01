@@ -1,6 +1,11 @@
 package tools;
 
+import java.util.Scanner;
+
+import misc.ExceptionScanner;
+
 public class FactorialCalculator implements ITool  {
+	Scanner sc = new Scanner(System.in);
 	private long number;
 	private long result;
 
@@ -33,15 +38,23 @@ public class FactorialCalculator implements ITool  {
 
 	@Override
 	public void Function() {
+		ExceptionScanner es = new ExceptionScanner();
+		
+		System.out.println("==Calcular factorial==");
+		
+		
+		setNumber(es.validNumberLong());
+		
+		
 		long temp = 1;
 		
-		for(int i = 1; i == number; i++) {
+		for(int i = 1; i <= number; i++) {
 			
 			temp = temp * i;
 		}
 		
 		
-		this.result = temp;
+		setResult(temp);
 		
 	}
 

@@ -6,6 +6,7 @@ public class PrimeNumerIdentifier implements ITool {
 	Scanner sc = new Scanner(System.in);
 	private long number;
 	private boolean isPrime;
+
 	
 	public PrimeNumerIdentifier() {
 		super();
@@ -46,39 +47,28 @@ public class PrimeNumerIdentifier implements ITool {
 		System.out.print("Ingrese el numero a evaluar: ");
 		setNumber(sc.nextLong());
 		
+		int counter = 0;
 		
-		for(int i = 1; i == number; i ++) {
-			
-			if(number > 1) {
-				
-				if(i != 1 || i !=number && number % i == 0) {
-					this.isPrime = false;
-				
-			}else if(number == 1){
-				
-				this.isPrime = false;
-			}else {
-				this.isPrime = true;
-				
-			}
-			
-			
+		for(int i = 1; i <= number; i ++) {
+			if(getNumber() % i ==0) {
+				counter = counter + 1;
 			}	
-		}	
+		}
 		
-		
-		
-		
-		
-		
+		if(counter == 2) {
+			setisPrime(true);
+			
+		}
 	}
 
+
+	
 	@Override
 	public void showResult() {
-		if(isPrime == true) {
+		if(getisPrime() == true) {
 			
 			System.out.printf("\nEl número %d es un número primo.", getNumber());
-		}else {
+		}else if(getisPrime() == false){
 			System.out.printf("\nEl número %d no es un número primo.", getNumber());
 			
 		}

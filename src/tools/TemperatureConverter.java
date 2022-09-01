@@ -1,11 +1,14 @@
 package tools;
 
+import java.util.Scanner;
+
 public class TemperatureConverter implements ITool {
+	Scanner sc = new Scanner(System.in);
 	
 	private double inputTemperature;
 	private double outputTemperature;
 	private String outputType;
-	
+	private String inputType;
 	
 	public TemperatureConverter() {
 		super();
@@ -14,18 +17,29 @@ public class TemperatureConverter implements ITool {
 	
 	
 
-	public TemperatureConverter(double inputTemperature, double outputTemperature, String outputType) {
+	public TemperatureConverter(double inputTemperature, double outputTemperature, String outputType, String inputType) {
 		super();
 		this.inputTemperature = inputTemperature;
 		this.outputTemperature = outputTemperature;
 		this.outputType = outputType;
+		this.inputType = inputType;
 	}
 
 
 
 	
+    public String getInputType() {
+		return inputType;
+	}
 
-	
+	public void setInputType(String inputType) {
+		this.inputType = inputType;
+	}
+
+	public void setOutputType(String outputType) {
+		this.outputType = outputType;
+	}
+
 	public String getOutputType() {
 		return outputType;
 	}
@@ -57,6 +71,7 @@ public class TemperatureConverter implements ITool {
 	
 
 	public void CelciusToFarenheit() {
+		this.inputType = "°C";
 		
 		this.outputTemperature = (inputTemperature * 1.8) + 32;
 		this.outputType = "°F";
@@ -64,6 +79,7 @@ public class TemperatureConverter implements ITool {
 	}
 	
     public void FarenheitToCelcius() {
+    	this.inputType = "°F";
     	
     	this.outputTemperature = (inputTemperature - 32) / 1.8;
     	this.outputType = "°C";
@@ -71,6 +87,7 @@ public class TemperatureConverter implements ITool {
 	}
     
     public void CelciusToKelvin() {
+    	this.inputType = "°C";
     	
 	    this.outputTemperature = inputTemperature + 273.15;
 	    this.outputType = "°K";
@@ -78,6 +95,7 @@ public class TemperatureConverter implements ITool {
     }
     
     public void KelvinToCelcius() {
+    	this.inputType = "°K";
     	
     	this.outputTemperature = inputTemperature - 273.15;
 		this.outputType = "°C";
@@ -85,6 +103,7 @@ public class TemperatureConverter implements ITool {
 	}
     
     public void FarenheitToKelvin() {
+    	this.inputType = "°F";
     	
     	this.outputTemperature = (inputTemperature - 32) / (1.8 + 273.15);
     	this.outputType = "°K";
@@ -93,6 +112,7 @@ public class TemperatureConverter implements ITool {
 	}
 
     public void KelvinToFarenheit() {
+    	this.inputType = "°K";
     	
     	this.outputTemperature = (inputTemperature * 1.8) - 459.67;
     	this.outputType = "°F";
@@ -104,8 +124,8 @@ public class TemperatureConverter implements ITool {
 
 	@Override
 	public void Function() {
-		// TODO Auto-generated method stub
-		
+		System.out.print("Ingrese el valor de la temperatura a convertir: ");
+		setInputTemperature(sc.nextDouble());
 	}
 
 
@@ -113,7 +133,8 @@ public class TemperatureConverter implements ITool {
 
 	@Override
 	public void showResult() {
-		// TODO Auto-generated method stub
+		
+		System.out.printf("%f%s es igual a: %f%s ", getInputTemperature(), getInputType(), getOutputTemperature(), getOutputType());
 		
 	}
 	

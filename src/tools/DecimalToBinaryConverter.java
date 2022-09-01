@@ -63,11 +63,8 @@ public class DecimalToBinaryConverter implements ITool {
 		System.out.println("===Convertidor de base decimal a base binaria===");
 		System.out.println("_________________________________________________\n");	
 		
-		System.out.print("Ingrese el número a convertir: ");
-		
-		
-		
-		setDecimalBaseNumber(es.validNumbeLong());
+		System.out.print("Ingrese el número a convertir: \n");
+		setDecimalBaseNumber(es.validNumberLong());
 		
 		setBinaryBaseNumber(Long.toBinaryString(getDecimalBaseNumber()));
 		

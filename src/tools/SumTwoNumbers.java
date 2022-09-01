@@ -1,7 +1,9 @@
 package tools;
 
+import java.util.Scanner;
+
 public class SumTwoNumbers implements ITool {
-	
+	Scanner sc = new Scanner(System.in);
 	private double a, b, result;
 
 	public SumTwoNumbers() {
@@ -36,13 +38,20 @@ public class SumTwoNumbers implements ITool {
 	
 	@Override
 	public void Function() {
+		System.out.println("==Sumar dos números==");
+		System.out.print("Ingrese el primer número: ");
+		setA(sc.nextDouble());
+		
+		System.out.print("Ingrese el segundo número: ");
+		setB(sc.nextDouble());
+		
 		this.result = a + b;
 		
 	}
 
 	@Override
 	public void showResult() {
-		System.out.printf("\nEl resultad de la suma de %d más %d es igual a: %d", getA(), getB(), getResult());
+		System.out.printf("\nEl resultad de la suma de %f más %f es igual a: %f", getA(), getB(), getResult());
 		
 	}
 

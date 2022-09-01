@@ -12,6 +12,8 @@ public class Menu implements IMenu {
     //Este metodo muestra el menu en sí.
 	@Override
 	public void show() {
+		
+		
 		short op = 0;
 		
 		do {
@@ -22,19 +24,28 @@ public class Menu implements IMenu {
 			
 			switch(op) {
 			case 1:
-				
+				MRUSpeedCalculatorMenu MRUSpeedMenu = new MRUSpeedCalculatorMenu();
+				MRUSpeedMenu.show();
 				break;
 			case 2:
+				HmaxParabolicTrayectoryCalculatorMenu hMaxMenu = new HmaxParabolicTrayectoryCalculatorMenu();				
+				hMaxMenu.show();
 				break;
 			case 3:
+				PrimeNumberIdentifierMenu primeNumberMenu = new PrimeNumberIdentifierMenu();
+				primeNumberMenu.show();
 				break;
 			case 4:
+				FactorialCalculatorMenu fcmenu = new FactorialCalculatorMenu();
+				fcmenu.show();
 				break;
 			case 5:
-				break;
-			case 6:
 				RandomNumberAndSum2NumbersMenu rmors2n = new RandomNumberAndSum2NumbersMenu();
 				rmors2n.show();
+				break;
+			case 6:
+				DecimalToBinaryConverterMenu dTobmenu = new DecimalToBinaryConverterMenu();
+				dTobmenu.show();
 				break;
 			case 7:
 				TemperatureConverterMenu tcm = new TemperatureConverterMenu();

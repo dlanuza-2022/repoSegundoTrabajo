@@ -25,7 +25,7 @@ public class ExceptionScanner {
 		
 	}
 	
-	public long validNumbeLong() {
+	public long validNumberLong() {
 		long output;
 		
 		do {

@@ -2,6 +2,8 @@ package tools;
 
 import java.util.Scanner;
 
+import misc.ExceptionScanner;
+
 public class MRUSpeedCalculator implements ITool {
 	Scanner sc = new Scanner(System.in);
 	
@@ -92,10 +94,10 @@ public class MRUSpeedCalculator implements ITool {
 			
 			switch(op) {
 			case 1:
-				this.distanceType = "m";
+				setDistanceType("m"); 
 				break;
 			case 2:
-				this.distanceType = "km";
+				setDistanceType("km");  
 				break;
 			default:
 				System.out.println("Opción inválida.");
@@ -103,7 +105,7 @@ public class MRUSpeedCalculator implements ITool {
 				
 			}
 			
-		}while(op != 1 || op !=2) ; 
+		}while(op != 1 && op !=2) ; 
 		
 	}
 
@@ -113,15 +115,15 @@ public class MRUSpeedCalculator implements ITool {
 		do {
 			System.out.println("\nSeleccione la medida de tiempo que utilizará.");
 			System.out.println("1. Segundos.");
-			System.out.println("2. Horas.n");
+			System.out.println("2. Horas.");
 			op = sc.nextShort();
 			
 			switch(op) {
 			case 1:
-				this.timeType = "s";
+				setTimeType("s"); 
 				break;
 			case 2:
-				this.timeType = "h";
+				setTimeType("h"); 
 				break;
 			default:
 				System.out.println("Opción inválida.");
@@ -129,7 +131,7 @@ public class MRUSpeedCalculator implements ITool {
 				
 			}
 			
-		}while(op != 1 || op !=2) ; 
+		}while(op != 1 && op !=2) ; 
 		
 		
 	}
@@ -146,19 +148,22 @@ public class MRUSpeedCalculator implements ITool {
 
 	@Override
 	public void Function() {
+		ExceptionScanner es = new ExceptionScanner();
+		
 		System.out.println("____________________________________\n");
 		System.out.println("===Calculador de velocidad en MRU===");
 		System.out.println("____________________________________\n");
 		
 		System.out.println("==Distancia==");
 		selectDistanceType();
+		
 		System.out.print("Ingrese el valor de la distancia: ");
-		setDistance(sc.nextDouble());
+		setDistance(es.validNumberDouble());
 		
 		System.out.println("==Tiempo==");
 		selectTimeType();
 		System.out.print("Ingrese el valor del tiempo: ");
-		setTime(sc.nextDouble());
+		setTime(es.validNumberDouble());
 		
 		speedCalculator();
 		
@@ -167,7 +172,8 @@ public class MRUSpeedCalculator implements ITool {
 
 	@Override
 	public void showResult() {
-		System.out.printf("El valor de la velocidad es de: %d%s%s%s ", getSpeed(), getDistanceType(), "/", getTimeType());
+		System.out.printf("El valor de la velocidad es de: %f1"
+				+ "%s%s%s ", getSpeed(), getDistanceType(), "/", getTimeType());
 		
 	}
 	

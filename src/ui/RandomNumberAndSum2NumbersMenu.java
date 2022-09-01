@@ -2,6 +2,8 @@ package ui;
 
 import java.util.Scanner;
 
+import App.FunctionExecutator;
+
 public class RandomNumberAndSum2NumbersMenu implements IMenu {
 	Scanner sc = new Scanner(System.in);
 
@@ -17,8 +19,10 @@ public class RandomNumberAndSum2NumbersMenu implements IMenu {
 			
 			switch(op) {
 			case 1:
+				FunctionExecutator.generateRandomNumber();
 				break;
 			case 2:
+				FunctionExecutator.sumTwoNumbers();
 				break;
 			case 3:
 				Menu m = new Menu();
